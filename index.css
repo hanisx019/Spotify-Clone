@@ -265,7 +265,7 @@ h1{
     position:absolute;
     bottom:-20px;
     width:100%;
-    backdrop-filter:blur(100px) ;
+    background-color: #121212;
     height:10vh;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -275,12 +275,31 @@ h1{
     display:flex;
     justify-content: center;
     align-items: center;
-    margin-top:11px;
+    margin-top:7px;
 }
 #bttn{
-    font-size: 50px;
+    font-size: 38px;
+    margin-bottom: 10px;
 }
 
+
+.seekbar{
+    width:50%;
+    background-color: white;;
+    height: 3px;
+    margin-bottom: 5px;
+    position: relative;
+}
+.circle{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: -6px;
+    left: 1%;
+    transition: all 0.3s ease-in;
+}
 
 
 
