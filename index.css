@@ -40,36 +40,90 @@ body{
     font-weight:bold;  
 }
 .library ul li{
-    width:25px;
     display:flex;
-    align-items: center;
+    justify-content: start;
     padding:20px 0px 0px 26px;    
     font-weight: bold;
 }
-.library ul{
+/* .library ul{
     display:flex;
     justify-content: space-between;
-}
+} */
 #tt{
     margin-right:20px;
     width:20px;
 }
+
+
 .library{
-    position:relative
+    position:relative;
 }
-footer{
-    position:absolute;
-    bottom:30px;
+
+.songList{
+    max-height: 435px;
+    overflow-x: scroll;
+    margin-top: 10px;
+}
+.songList::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+#p1{
+    height:30px;
+}
+#p2{
+    height:30px;
+}
+
+.songList ul li {
+    outline: 1px solid #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    padding: 15px;
+    margin: 16px 8px 14px 9px;
+    width: 311px;
+}
+
+#imgone{
+    height: 35px;
+    margin:15px 0px 0px 17px;
+}
+#imgtwo{
+    margin:15px 0px 0px 0px;
+    font-weight: bold;
+}
+.partone{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 13px;
+}
+.library .footer {
+    bottom: -20px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
     font-size: 10px;
-    font-weight:bold;
-    /* display:flex;   */
-    font-family: "Roboto", sans-serif;
-    margin:5px;
+
+    position: relative;
+    height: 89px;
+    margin-left: 15px;
+    margin-top: -12px;
 }
-.library footer a{
-    text-decoration: none;
-    padding:10px;
-    color:#B3B3B3
+
+.d1{
+    width:6%;
+}
+.d2{
+    width:40%;
+    text-align: left;
+}
+.d3{
+    width:17%;
 }
 
 .right{
@@ -146,7 +200,7 @@ footer{
     flex-wrap: wrap;
     justify-content: center;
     overflow-x:scroll;
-    max-height:81.5vh;
+    max-height:71.5vh;
     
 }
 .main::-webkit-scrollbar {
@@ -226,6 +280,8 @@ h1{
 #bttn{
     font-size: 50px;
 }
+
+
 
 
 
