@@ -260,19 +260,23 @@ h1 {
 }
 
 .play-bar {
-  position: absolute;
-  bottom: -20px;
-  width: 100%;
-  background-color: #121212;
-  height: 10vh;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+    position: absolute;
+    justify-content: space-around;
+    align-items: center;
+    gap: 240px;
+    bottom: -20px;
+    width: 100%;
+    background-color: #121212;
+    height: 10vh;
+    display: flex;
 }
 .play-bar .songbuttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -20px;
+    height: 39px;
+    margin-left: -50px;
 }
 #bttn {
   font-size: 38px;
@@ -286,6 +290,7 @@ h1 {
   height: 3px;
   margin-bottom: 5px;
   position: relative;
+  bottom:-60px;
 }
 .circle {
   height: 15px;
@@ -296,4 +301,13 @@ h1 {
   top: -6px;
   left: 1%;
   transition: all 0.3s ease-in;
+}
+
+#previous ,#play , #next {
+  margin-top: 15px;
+  height: 33px;
+}
+.seek1{
+  display:flex;
+  justify-content: center;
 }
