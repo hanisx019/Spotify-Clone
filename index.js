@@ -1,5 +1,6 @@
 let currentSong = new Audio();
 let playSong = document.getElementById("play");
+let timer;
 async function getSongs() {
 
   let a = await fetch("http://127.0.0.1:3000/songs/");
@@ -23,8 +24,28 @@ async function getSongs() {
       songs.push(b[i].href.split("/songs/")[1]);
     }
   }
-  // return { songs, shortSongs };
   return songs;
+}
+
+function formatTime(time,duration) {
+  const mins = Math.floor(time / 60);
+  const secs = Math.floor(time % 60);
+  const formattedMins = String(mins).padStart(2, '0');
+  const formattedSecs = String(secs).padStart(2, '0');
+
+
+  const mins1 = Math.floor(duration / 60);
+  const secs1 = Math.floor(duration % 60);
+  const formattedMins1 = String(mins1).padStart(2, '0');
+  const formattedSecs1 = String(secs1).padStart(2, '0');
+
+
+  time =`${formattedMins}:${formattedSecs}`
+  duration =`${formattedMins1}:${formattedSecs1}`
+
+
+  console.log(time,duration);
+  document.querySelector(".song-duration").innerHTML=`${time}/${duration}`
 }
 
 
@@ -33,6 +54,8 @@ function playMusic(track) {
   currentSong.src = "/songs/" + track;
   currentSong.play();
   playSong.src="/img/pause.svg"
+  document.querySelector(".song-info").innerHTML = track.split("- PagalWorld.mp3")[0];
+  document.querySelector(".song-duration").innerHTML=`${timer}`;
 }
 
 async function main() {
@@ -74,6 +97,26 @@ async function main() {
       playSong.src = "/img/play.svg";
     }
   });
+
+    currentSong.addEventListener("timeupdate",()=>{
+      let cr=currentSong.currentTime;
+      let dr=currentSong.duration;
+      let time=Math.floor(cr+1)
+      let duration=Math.floor(dr+1)
+      // console.log(time,duration);
+      formatTime(time,duration);
+  })
+
+  
+    currentSong.addEventListener("loadedmetadata",()=>{
+      let cr=currentSong.currentTime;
+      let dr=currentSong.duration;
+      let time=Math.floor(cr+1)
+      let duration=Math.floor(dr+1)
+      // console.log(time,duration);
+      formatTime(time,duration);
+  })
+
 }
 
 main();

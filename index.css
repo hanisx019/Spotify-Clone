@@ -200,7 +200,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   overflow-x: scroll;
-  max-height: 71.5vh;
+  max-height:66.5vh;
 }
 .main::-webkit-scrollbar {
   display: none; /* Chrome, Safari: hide scrollbar */
@@ -260,23 +260,26 @@ h1 {
 }
 
 .play-bar {
-    position: absolute;
+    position: relative;
     justify-content: space-around;
     align-items: center;
     gap: 240px;
     bottom: -20px;
     width: 100%;
     background-color: #121212;
-    height: 10vh;
+    height: 12vh;
     display: flex;
 }
 .play-bar .songbuttons {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -20px;
+    /* margin-top: -20px; */
     height: 39px;
-    margin-left: -50px;
+    /* margin-left: -50px; */
+      position: absolute;
+  z-index: 100;
+  gap:10px;
 }
 #bttn {
   font-size: 38px;
@@ -290,7 +293,7 @@ h1 {
   height: 3px;
   margin-bottom: 5px;
   position: relative;
-  bottom:-60px;
+  bottom:-6px;
 }
 .circle {
   height: 15px;
@@ -311,3 +314,31 @@ h1 {
   display:flex;
   justify-content: center;
 }
+.song-duration {
+    font-size: 13px;
+    position: relative;
+    /* right: -115px; */
+}
+
+.song-info {
+    width: 45%;
+    flex-wrap: wrap;
+    position: fixed;
+    position: relative;
+    font-size: 13px;
+    /* justify-content: center; */
+}
+
+
+/* playSong.addEventListener("click", () => {
+  if (!currentSong.src) {
+    playMusic(decodeURI(songs[0]));
+    playSong.src = "/img/pause.svg";
+   } else if (currentSong.paused) {
+      currentSong.play();
+      playSong.src = "/img/pause.svg";
+    } else {
+      currentSong.pause();
+      playSong.src = "/img/play.svg";
+    }
+  }); */
