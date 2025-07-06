@@ -1,15 +1,20 @@
 let currentSong = new Audio();
-
+let playSong = document.getElementById("play");
 async function getSongs() {
+
   let a = await fetch("http://127.0.0.1:3000/songs/");
   let data = await a.text();
   // console.log(data);
+
+
   let div = document.createElement("div");
   div.innerHTML = data;
   // console.log(div);
 
+
   let b = div.querySelectorAll("a");
   // console.log(b);
+
 
   let songs = [];
   // let shortSongs = [];
@@ -22,10 +27,12 @@ async function getSongs() {
   return songs;
 }
 
+
 function playMusic(track) {
   // let audio = new Audio("/songs/" + track);
   currentSong.src = "/songs/" + track;
   currentSong.play();
+  playSong.src="/img/pause.svg"
 }
 
 async function main() {
@@ -53,13 +60,14 @@ async function main() {
       playMusic(e.firstElementChild.nextElementSibling.innerHTML);
     });
   });
+ 
 
-  let playSong = document.getElementById("play");
+
   playSong.addEventListener("click", () => {
-    if (currentSong.paused) {
+  if (!currentSong.src) {
+    playSong.src = "/img/play.svg";
+   } else if (currentSong.paused) {
       currentSong.play();
-      playSong.src = "/img/pause.svg";
-    } else if (!currentSong.src) {
       playSong.src = "/img/pause.svg";
     } else {
       currentSong.pause();
@@ -67,4 +75,5 @@ async function main() {
     }
   });
 }
+
 main();
