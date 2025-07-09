@@ -49,17 +49,20 @@ function formatTime(time,duration) {
 }
 
 
-function playMusic(track) {
+function playMusic(track,pause=false) {
   // let audio = new Audio("/songs/" + track);
   currentSong.src = "/songs/" + track;
-  currentSong.play();
-  playSong.src="/img/pause.svg"
-  document.querySelector(".song-info").innerHTML = track.split("- PagalWorld.mp3")[0];
+  if(!pause){
+    currentSong.play();
+    playSong.src="/img/pause.svg"
+  }
+  let cv=document.querySelector(".song-info").innerHTML = decodeURI(track).split("- PagalWorld.mp3")[0];
   document.querySelector(".song-duration").innerHTML=`${timer}`;
 }
 
 async function main() {
   let songs = await getSongs();
+  playMusic(songs[0],true)
 
   let songUL = document
     .querySelector(".songList")
@@ -105,6 +108,9 @@ async function main() {
       let duration=Math.floor(dr+1)
       // console.log(time,duration);
       formatTime(time,duration);
+
+      let c1=document.querySelector(".circle").style.left=(time/duration)*100+"%";
+      console.log(c1);
   })
 
   
@@ -117,6 +123,13 @@ async function main() {
       formatTime(time,duration);
   })
 
+  //add event listner to seekbar
+
+  document.querySelector(".seekbar").addEventListener("click",(e)=>{
+    let percent = ((e.offsetX/e.target.getBoundingClientRect().width)*100)
+    document.querySelector(".circle").style.left = percent+"%";
+    currentSong.currentTime=((currentSong.duration)*percent)/100
+  })
 }
 
 main();

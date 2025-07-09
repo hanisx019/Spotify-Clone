@@ -294,6 +294,7 @@ h1 {
   margin-bottom: 5px;
   position: relative;
   bottom:-6px;
+  cursor: pointer;
 }
 .circle {
   height: 15px;
@@ -302,8 +303,8 @@ h1 {
   background-color: white;
   position: absolute;
   top: -6px;
-  left: 1%;
-  transition: all 0.3s ease-in;
+  left: 0%;
+  transition:left 0.8s;
 }
 
 #previous ,#play , #next {
