@@ -330,16 +330,11 @@ h1 {
     /* justify-content: center; */
 }
 
-
-/* playSong.addEventListener("click", () => {
-  if (!currentSong.src) {
-    playMusic(decodeURI(songs[0]));
-    playSong.src = "/img/pause.svg";
-   } else if (currentSong.paused) {
-      currentSong.play();
-      playSong.src = "/img/pause.svg";
-    } else {
-      currentSong.pause();
-      playSong.src = "/img/play.svg";
-    }
-  }); */
+#menu{
+  display: none;
+}
+.cross {
+    position: absolute;
+    top: 29px;
+    right: 10%;
+}
