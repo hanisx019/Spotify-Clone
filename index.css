@@ -200,7 +200,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   overflow-x: scroll;
-  max-height:66.5vh;
+  max-height: 66.5vh;
 }
 .main::-webkit-scrollbar {
   display: none; /* Chrome, Safari: hide scrollbar */
@@ -260,31 +260,31 @@ h1 {
 }
 
 .play-bar {
-    position: relative;
-    justify-content: space-around;
-    align-items: center;
-    gap: 240px;
-    bottom: -20px;
-    width: 100%;
-    background-color: #121212;
-    height: 12vh;
-    display: flex;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  gap: 240px;
+  bottom: -20px;
+  width: 100%;
+  background-color: #121212;
+  height: 12vh;
+  display: flex;
 }
 .play-bar .songbuttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* margin-top: -20px; */
-    height: 39px;
-    /* margin-left: -50px; */
-      position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: -20px; */
+  height: 39px;
+  /* margin-left: -50px; */
+  position: absolute;
   z-index: 100;
-  gap:10px;
+  gap: 10px;
 }
 #bttn {
   font-size: 38px;
   margin-bottom: 10px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .seekbar {
@@ -293,7 +293,7 @@ h1 {
   height: 3px;
   margin-bottom: 5px;
   position: relative;
-  bottom:-6px;
+  bottom: -6px;
   cursor: pointer;
 }
 .circle {
@@ -303,38 +303,51 @@ h1 {
   background-color: white;
   position: absolute;
   top: -6px;
-  left: 0%;
-  transition:left 0.8s;
+  left: -0.5%;
+  transition: left 0.8s;
 }
 
-#previous ,#play , #next {
+#previous,
+#play,
+#next {
   margin-top: 15px;
   height: 33px;
 }
-.seek1{
-  display:flex;
+.seek1 {
+  display: flex;
   justify-content: center;
 }
 .song-duration {
-    font-size: 13px;
-    position: relative;
-    /* right: -115px; */
+  font-size: 13px;
+  position: relative;
+  /* right: -115px; */
 }
 
 .song-info {
-    width: 45%;
-    flex-wrap: wrap;
-    position: fixed;
-    position: relative;
-    font-size: 13px;
-    /* justify-content: center; */
+  width: 45%;
+  flex-wrap: wrap;
+  position: fixed;
+  position: relative;
+  font-size: 13px;
+  /* justify-content: center; */
 }
 
-#menu{
+#menu {
   display: none;
 }
 .cross {
-    position: absolute;
-    top: 29px;
-    right: 10%;
+  position: absolute;
+  top: 29px;
+  right: 10%;
+}
+.volume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 8px;
+  right: 39px;
+}
+#range {
+  width: 140px;
 }
