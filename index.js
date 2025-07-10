@@ -173,9 +173,9 @@ async function main() {
     currentSong.currentTime = (currentSong.duration * percent) / 100;
   });
 
-  document.getElementById("menu").addEventListener("click", () => {
-    document.querySelector(".left").style.left = 0;
-  });
+  // document.getElementById("menu").addEventListener("click", () => {
+  //   document.querySelector(".left").style.left = 0;
+  // });
 
   document.querySelector(".cross").addEventListener("click", () => {
     document.querySelector(".left").style.left = -100 + "%";
