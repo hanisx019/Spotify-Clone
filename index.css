@@ -231,9 +231,23 @@ body {
   left: 21%;
   top: 16%;
 }
-/* #search{
-  width:100px;
-} */
+.search {
+    background-color: #292929;
+    height: 46px;
+    z-index: 100;
+    position: absolute;
+    left: 65.5%;
+    width: 50px;
+    border-radius: 50%;
+    top: 18%;
+}
+
+#search{
+  width:33px;
+  position: absolute;
+  left: 15%;
+  top: 14%;
+}
 
 
 
@@ -263,7 +277,7 @@ h1 {
     font-family: "Montserrat", sans-serif;
 }
 .box {
-  height: 205px;
+  height: 210px;
   width: 160px;
   color: rgb(255, 255, 255);
   padding: 10px;
