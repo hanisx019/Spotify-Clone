@@ -3,17 +3,20 @@ let playSong = document.getElementById("play");
 let timer;
 let songs;
 let currFolder;
+
+//function for getting songs//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 async function getSongs(folder) {
   currFolder = folder;
   let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
   let data = await a.text();
+
+  //fetched data is stored in div tag
   let div = document.createElement("div");
   div.innerHTML = data;
 
   let b = div.querySelectorAll("a");
-
   songs = [];
-  // let shortSongs = [];
   for (let i = 0; i < b.length; i++) {
     if (b[i].href.endsWith("mp3")) {
       songs.push(b[i].href.split(`${folder}`)[1]);
@@ -33,16 +36,18 @@ async function getSongs(folder) {
      </li>
     `;
   }
-
   Array.from(
     document.querySelector(".songList").getElementsByTagName("li")
   ).forEach((e) => {
     e.addEventListener("click", (element) => {
-      console.log(e.firstElementChild.nextElementSibling.innerHTML);
       playMusic(e.firstElementChild.nextElementSibling.innerHTML);
     });
   });
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// function for converting time to 00:00/00:00 format////////////////////////////////////////////////////////////////////////////
 
 function formatTime(time, duration) {
   const mins = Math.floor(time / 60);
@@ -58,21 +63,28 @@ function formatTime(time, duration) {
   time = `${formattedMins}:${formattedSecs}`;
   duration = `${formattedMins1}:${formattedSecs1}`;
 
-  console.log(time, duration);
-  document.querySelector(".song-duration").innerHTML = `${time}/${duration}`;
+  document.querySelector(".song-duration").innerHTML = `
+  <div class="st">${time}</div>
+  <div class="et">${duration}</div>
+  `;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function playMusic(track, pause = false) {
-  // let audio = new Audio("/songs/" + track);
   currentSong.src = `${currFolder}` + track;
   if (!pause) {
     currentSong.play();
-    playSong.src = "/img/pause.svg";
+    playSong.src = "/img/pauseu.svg";
   }
-  document.querySelector(".song-info").innerHTML =
-    decodeURI(track).split("- PagalWorld.mp3")[0];
+
+  let abd=decodeURI(track).split("- PagalWorld.mp3")[0];
+  document.querySelector(".song-info").innerHTML =abd.split("/")[1];
+
   document.querySelector(".song-duration").innerHTML = `${timer}`;
 }
+
+//function for dynamic playlist////////////////////////////////////////////////
+
 async function displayAlbums() {
   let a = await fetch(`http://127.0.0.1:3000/songs/`);
   let data = await a.text();
@@ -86,14 +98,14 @@ async function displayAlbums() {
       let folder = e.href.split("/").slice(-2)[0];
       let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/info.json`);
       let data = await a.json();
-      console.log(data);
+
       let groups = document.getElementById("main");
-      console.log("groups");
+
       groups.innerHTML =
         groups.innerHTML +
         `
       <div data-folder="${folder}" class="box" id="card"> 
-          <div class="play"><img src="/img/roundplay.svg" /></div>
+          <div class="play"><img src="/img/spotplay.svg" /></div>
           <img src="songs/${folder}/cover.jpeg"  />
           <h2>${data.title}</h2>
           <p>${data.description}</p>
@@ -103,13 +115,16 @@ async function displayAlbums() {
   }
   //load playlist
   Array.from(document.querySelectorAll(".box")).forEach((e) => {
-    console.log(e);
     e.addEventListener("click", async (item) => {
-      console.log(item, item.currentTarget.dataset);
       songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
     });
   });
 }
+
+///////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////function main ///////////////////////////////
+
 async function main() {
   await getSongs("songs/folder1");
   playMusic(songs[0], true);
@@ -119,13 +134,13 @@ async function main() {
 
   playSong.addEventListener("click", () => {
     if (!currentSong.src) {
-      playSong.src = "/img/play.svg";
+      playSong.src = "/img/playu.svg";
     } else if (currentSong.paused) {
       currentSong.play();
-      playSong.src = "/img/pause.svg";
+      playSong.src = "/img/pauseu.svg";
     } else {
       currentSong.pause();
-      playSong.src = "/img/play.svg";
+      playSong.src = "/img/playu.svg";
     }
   });
 
@@ -134,12 +149,11 @@ async function main() {
     let dr = currentSong.duration;
     let time = Math.floor(cr + 1);
     let duration = Math.floor(dr + 1);
-    // console.log(time,duration);
+
     formatTime(time, duration);
 
     let c1 = (document.querySelector(".circle").style.left =
       (time / duration) * 100 + "%");
-    console.log(c1);
   });
 
   currentSong.addEventListener("loadedmetadata", () => {
@@ -147,7 +161,7 @@ async function main() {
     let dr = currentSong.duration;
     let time = Math.floor(cr + 1);
     let duration = Math.floor(dr + 1);
-    // console.log(time,duration);
+
     formatTime(time, duration);
   });
 
@@ -168,7 +182,6 @@ async function main() {
   });
 
   document.getElementById("previous").addEventListener("click", () => {
-    console.log(currentSong);
     let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
     if (index - 1 >= 0) {
       playMusic(songs[index - 1]);
@@ -182,14 +195,17 @@ async function main() {
     }
   });
 
+  // Volume Button Function///////////
+
   document
     .querySelector(".volume")
     .getElementsByTagName("input")[0]
     .addEventListener("change", (e) => {
       currentSong.volume = parseInt(e.target.value) / 100;
     });
+  /////////////////////////////////////
 
-  //mute button
+  //Mute Button function///////////////
 
   document.querySelector(".volume>img").addEventListener("click", (e) => {
     if (e.target.src.includes("/img/volume.svg")) {
@@ -206,6 +222,8 @@ async function main() {
         .getElementsByTagName("input")[0].value = 10;
     }
   });
+
+  ///////////////////////////////////
 }
 
 main();

@@ -1,128 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify - Web Player: Music for everyone</title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="utility.css" />
-    <link rel="stylesheet" href="index1.css">
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <div class="container flex">
-      <div class="left">
-        <div class="cross">
-          <img class="invert" src="/img/cross.svg">
-        </div>
-        <div class="home">
-          <ul>
-            <li><img class="invert" src="/img/logo.svg" alt="Logo" /></li>
-            <li>
-              <img
-                class="invert"
-                src="/img/home.svg"
-                alt="Home"
-              />&nbsp;&nbsp;Home
-            </li>
-            <li>
-              <img
-                class="invert"
-                src="/img/search.svg"
-                alt="Search"
-              />&nbsp;&nbsp;&nbsp;Search
-            </li>
-          </ul>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify - Web Player: Music for everyone</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="utility.css" />
+  <link rel="stylesheet" href="index1.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
 
-        <div class="library">
-          <div class="partone">
-            <div>
-              <img
-                id="imgone"
-                class="invert"
-                src="/img/playlist.svg"
-                alt="Library"
-              />
-            </div>
-            <div id="imgtwo">Your Library</div>
-          </div>
-
-          <div class="songList" id="songList">
-            <ul></ul>
-          </div>
-
-          <div class="footer">
-            <div>Home</div>
-            <div>Safety and PrivacyCenter</div>
-            <div>PrivacyPolicy</div>
-            <div>Cookies</div>
-            <div>About Ads</div>
-            <div>Accesibility</div>
-            <div>Cookies</div>
-          </div>
-        </div>
+<body>
+  <div class="container flex">
+    <div class="left">
+      <div class="cross">
+        <img class="invert" src="/img/cross.svg">
       </div>
-        <div class="right2">
-          <div class="nav-header">
-            <div class="left1">
-              <img class="invert" id="menu" src="/img/menu.svg">
-              <img class="invert" src="/img/rightarrow.svg" />&nbsp;
-              <img class="invert" src="/img/leftarrow.svg" />
-            </div>
-            <div class="right1">
-              <button id="bt1">Sign up</button>
-              <button id="bt2">Login</button>
-            </div>
+      <div class="home">
+        <ul>
+          <li><img class="invert" src="/img/logo.svg" alt="Logo" /></li>
+          <li>
+            <img class="invert" src="/img/home.svg" alt="Home" />&nbsp;&nbsp;Home
+          </li>
+          <li>
+            <img class="invert" src="/img/search.svg" alt="Search" />&nbsp;&nbsp;&nbsp;Search
+          </li>
+        </ul>
+      </div>
+
+      <div class="library">
+        <div class="partone">
+          <div>
+            <img id="imgone" class="invert" src="/img/playlist.svg" alt="Library" />
           </div>
-          <h1>Spotify Playlists</h1>
-          <div class="main" id="main">
+          <div id="imgtwo">Your Library</div>
+        </div>
 
-          </div>
+        <div class="songList" id="songList">
+          <ul></ul>
+        </div>
 
-
-          <div class="play-bar">
-
-
-              <div class="song-info"></div>
-
-                  <div class="songbuttons">
-                    <div class="previous-btn" id="bttn">
-                      <img id="previous" class="invert" src="/img/prevoius.svg">
-                    </div>
-                    <div class="play-btn" id="bttn">
-                      <img id="play" class="invert" src="/img/play.svg"/>
-                    </div>
-                    <div class="next-btn" id="bttn">
-                      <img id="next" class="invert" src="/img/next.svg"/>
-                    </div>
-                  </div>
-
-                  <div class="song-duration"></div>
-
-                  
-          </div>
-          <div class="seek1">
-            <div class="seekbar">
-                <div class="circle" id="circle"></div>
-          </div>
-          </div>
-          <div class="volume">
-            <img class="invert" src="/img/volume.svg">
-            <input class="range" type="range" name="range" id="range">
-          </div>
-
-
-
-
-
+        <div class="footer">
+          <div>Home</div>
+          <div>Safety and PrivacyCenter</div>
+          <div>PrivacyPolicy</div>
+          <div>Cookies</div>
+          <div>About Ads</div>
+          <div>Accesibility</div>
+          <div>Cookies</div>
         </div>
       </div>
     </div>
-    <script src="index.js"></script>
-  </body>
+
+    <div class="right2">
+      <div class="nav-header">
+        <div class="left1">
+          <img class="invert" id="menu" src="/img/menu.svg">
+          <img class="invert" src="/img/rightarrow.svg" />&nbsp;
+          <img class="invert" src="/img/leftarrow.svg" />
+        </div>
+        <div class="right1">
+          <button id="bt1">Sign up</button>
+          <button id="bt2">Login</button>
+        </div>
+      </div>
+      <h1>Albums Featured</h1>
+      <div class="main" id="main">
+
+      </div>
+
+
+      <div class="play-bar">
+
+        <!-- <div class="song-img">
+          <img src=""
+        </div> -->
+        <div class="song-info"></div>
+
+        <div class="songbuttons">
+          <div class="previous-btn" id="bttn">
+            <img id="previous" src="/img/pu.svg">
+          </div>
+          <div class="play-btn" id="bttn">
+            <img id="play" class="invert" src="/img/playu.svg" />
+          </div>
+          <div class="next-btn" id="bttn">
+            <img id="next" src="/img/nextsong.svg" />
+          </div>
+        </div>
+
+        <div class="song-duration">
+
+
+        </div>
+
+
+      </div>
+      <div class="seek1">
+        <div class="seekbar">
+          <div class="circle" id="circle"></div>
+        </div>
+      </div>
+      <div class="volume">
+        <img class="invert" src="/img/volume.svg">
+        <input class="volume-slider" type="range" name="range" id="range">
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
 </html>
