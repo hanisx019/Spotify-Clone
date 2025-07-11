@@ -558,3 +558,6 @@ h1 {
 .volume-slider:hover::-moz-range-thumb {
   opacity: 1;
 }
+#d0{
+  display: none;
+}
