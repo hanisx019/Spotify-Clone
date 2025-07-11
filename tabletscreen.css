@@ -1,0 +1,25 @@
+@media (min-width:600px) and (max-width:1000px){
+    .button2{
+        right: 0%;
+    }
+    .button1{
+        right: 12%;
+    }
+    .combo{
+        left: 28%;
+    }
+    .search{
+        right: -295%;
+    }
+    .home{
+        left: -10%;
+    }
+    #text{
+        width: 262px;
+
+    }
+    .hamburger{
+        left: 18%;
+    }
+
+}

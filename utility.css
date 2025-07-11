@@ -1,0 +1,24 @@
+.flex{
+    display: flex;
+}
+.justify-center{
+    justify-content: center;
+}
+.align-center{
+    align-items: center;
+}
+.border{
+    border: 1px solid #ccc;   
+}
+.margin{
+    padding:10px;
+}
+.outline{
+    outline:none;
+}
+.invert{
+    filter: invert(1);
+}
+.inver{
+    filter:grayscale(50%)
+}
