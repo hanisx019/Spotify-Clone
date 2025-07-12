@@ -8,20 +8,11 @@ let currFolder;
 
 async function getSongs(folder) {
   currFolder = folder;
-  let a = await fetch(`${folder}/`);
-  let data = await a.text();
+  let a = await fetch(`${folder}/songs.json`);
+  let data = await a.json();
 
-  //fetched data is stored in div tag
-  let div = document.createElement("div");
-  div.innerHTML = data;
+  songs = data.map(song => "/" + song);
 
-  let b = div.querySelectorAll("a");
-  songs = [];
-  for (let i = 0; i < b.length; i++) {
-    if (b[i].href.endsWith("mp3")) {
-      songs.push(b[i].href.split(`${folder}`)[1]);
-    }
-  }
   let songUL = document
     .querySelector(".songList")
     .getElementsByTagName("ul")[0];
@@ -42,9 +33,9 @@ async function getSongs(folder) {
   }
   Array.from(
     document.querySelector(".songList").getElementsByTagName("li")
-  ).forEach((e) => {
-    e.addEventListener("click", (element) => {
-      playMusic(e.firstElementChild.nextElementSibling.innerHTML);
+  ).forEach((e, i) => {
+    e.addEventListener("click", () => {
+      playMusic(songs[i]);
     });
   });
   return songs;
