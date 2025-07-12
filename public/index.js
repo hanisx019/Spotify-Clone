@@ -82,35 +82,28 @@ function playMusic(track, pause = false) {
 //function for dynamic playlist////////////////////////////////////////////////
 
 async function displayAlbums() {
-  let a = await fetch(`songs/`);
-  let data = await a.text();
-  let div = document.createElement("div");
-  div.innerHTML = data;
-  let anchors = div.getElementsByTagName("a");
-  // let cardContainer = document.querySelector(".box");
-  let array = Array.from(anchors);
-  for (let i = 0; i < array.length; i++) {
-    const e = array[i];
-    if (e.href.includes("songs")) {
-      let folder = e.href.split("/").slice(-2)[0];
-      let a = await fetch(`songs/${folder}/info.json`);
-      let data = await a.json();
+  // Fetch the list of album folders
+  let a = await fetch("songs/albums.json");
+  let folders = await a.json();
 
-      let groups = document.getElementById("main");
+  let groups = document.getElementById("main");
+  groups.innerHTML = "";
 
-      groups.innerHTML =
-        groups.innerHTML +
-        `
+  for (let folder of folders) {
+    let infoRes = await fetch(`songs/${folder}/info.json`);
+    let data = await infoRes.json();
+
+    groups.innerHTML += `
       <div data-folder="${folder}" class="box" id="card"> 
           <div class="play"><img src="img/spotplay.svg" /></div>
           <img src="songs/${folder}/cover.jpeg"  />
           <h2>${data.title}</h2>
           <p>${data.description}</p>
       </div> 
-      `;
-    }
+    `;
   }
-  //load playlist whenver card is clicked
+
+  // Load playlist when card is clicked
   Array.from(document.querySelectorAll(".box")).forEach((e) => {
     e.addEventListener("click", async (item) => {
       songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
