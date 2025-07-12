@@ -6,9 +6,9 @@ Features:
 -Custom music player with play, pause, next, previous, and volume controls
 -Album and playlist browsing
 -Responsive layout for Desktop and Mobile
--Modern UI inspired by Spotify,but all code and logic are self-written
+-Modern UI inspired by Spotify, but all code and logic are self-written
 
--
 Tech Stack:
+
 HTML5, CSS3, JavaScript (ES6)
 Static hosting (Vercel, Netlify)
