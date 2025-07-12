@@ -3,7 +3,7 @@
         position:absolute;
         width: 40.5vw;
         left:-100%;
-        transition:left 0.5s ease-in-out;
+        transition:left 0.3s ease-in-out;
         z-index: 1;
     }
         .cross{
