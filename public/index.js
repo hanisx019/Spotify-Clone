@@ -8,7 +8,7 @@ let currFolder;
 
 async function getSongs(folder) {
   currFolder = folder;
-  let a = await fetch(`/${folder}/`);
+  let a = await fetch(`${folder}/`);
   let data = await a.text();
 
   //fetched data is stored in div tag
@@ -29,14 +29,14 @@ async function getSongs(folder) {
   for (let song of songs) {
     songUL.innerHTML += `
     <li>
-     <div class="d1"><img id="p1" class="invert" src="/img/music-solid-24.png"/></div>
+     <div class="d1"><img id="p1" class="invert" src="img/music-solid-24.png"/></div>
      <div class="d0" id="d0">${song.replaceAll("%20", " ")}</div>
      <div class="d2" id="d">${song
        .replaceAll("%20", " ")
        .replaceAll("/", " ")
        .replaceAll("- PagalWorld.mp3", " ")}</div>
      <div class="d3">Play Now</div>
-     <div class="d4"><img id="p2" src="/img/spotplay.svg"></div>
+     <div class="d4"><img id="p2" src="img/spotplay.svg"></div>
      </li>
     `;
   }
@@ -79,7 +79,7 @@ function playMusic(track, pause = false) {
   currentSong.src = `${currFolder}` + track;
   if (!pause) {
     currentSong.play();
-    playSong.src = "/img/pauseu.svg";
+    playSong.src = "img/pauseu.svg";
   }
 
   let abd = decodeURI(track).split("- PagalWorld.mp3")[0];
@@ -91,7 +91,7 @@ function playMusic(track, pause = false) {
 //function for dynamic playlist////////////////////////////////////////////////
 
 async function displayAlbums() {
-  let a = await fetch(`/songs/`);
+  let a = await fetch(`songs/`);
   let data = await a.text();
   let div = document.createElement("div");
   div.innerHTML = data;
@@ -100,9 +100,9 @@ async function displayAlbums() {
   let array = Array.from(anchors);
   for (let i = 0; i < array.length; i++) {
     const e = array[i];
-    if (e.href.includes("/songs")) {
+    if (e.href.includes("songs")) {
       let folder = e.href.split("/").slice(-2)[0];
-      let a = await fetch(`/songs/${folder}/info.json`);
+      let a = await fetch(`songs/${folder}/info.json`);
       let data = await a.json();
 
       let groups = document.getElementById("main");
@@ -111,7 +111,7 @@ async function displayAlbums() {
         groups.innerHTML +
         `
       <div data-folder="${folder}" class="box" id="card"> 
-          <div class="play"><img src="/img/spotplay.svg" /></div>
+          <div class="play"><img src="img/spotplay.svg" /></div>
           <img src="songs/${folder}/cover.jpeg"  />
           <h2>${data.title}</h2>
           <p>${data.description}</p>
@@ -141,13 +141,13 @@ async function main() {
 
   playSong.addEventListener("click", () => {
     if (!currentSong.src) {
-      playSong.src = "/img/playu.svg";
+      playSong.src = "img/playu.svg";
     } else if (currentSong.paused) {
       currentSong.play();
-      playSong.src = "/img/pauseu.svg";
+      playSong.src = "img/pauseu.svg";
     } else {
       currentSong.pause();
-      playSong.src = "/img/playu.svg";
+      playSong.src = "img/playu.svg";
     }
   });
 
@@ -266,7 +266,7 @@ async function main() {
   //Mute Button function///////////////
 
   document.querySelector(".volume>img").addEventListener("click", (e) => {
-    if (e.target.src.includes("/img/volume.svg")) {
+    if (e.target.src.includes("img/volume.svg")) {
       e.target.src = e.target.src.replace("volume.svg", "mute.svg");
       currentSong.volume = 0;
       document
