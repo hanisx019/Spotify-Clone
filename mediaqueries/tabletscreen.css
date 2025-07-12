@@ -1,0 +1,36 @@
+@media (min-width:600px) and (max-width:1000px){
+        .left{
+        position:absolute;
+        width: 40.5vw;
+        left:-100%;
+        transition:left 0.5s ease-in-out;
+        z-index: 1;
+    }
+        .cross{
+        display: inline;
+    }
+    .button2{
+        right: 0%;
+    }
+    .button1{
+        right: 12%;
+    }
+    .combo{
+        left: 28%;
+    }
+    .search{
+        right: -295%;
+    }
+    .home{
+        left: -10%;
+    }
+    #text{
+        width: 262px;
+
+    }
+    .hamburger{
+        left: 18%;
+        display:inline;
+    }
+
+}

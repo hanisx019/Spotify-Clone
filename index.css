@@ -536,3 +536,6 @@ h1 {
 .cross img {
   width: 30px;
 }
+.sd{
+  display: none;
+}

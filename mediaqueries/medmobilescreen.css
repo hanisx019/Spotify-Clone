@@ -1,0 +1,97 @@
+@media (min-width:300px) and (max-width:600px){
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    .left{
+        position:absolute;
+        left:-100%;
+        transition:left 0.5s ease-in-out;
+        z-index: 1;
+    }
+    .combo,.button1,.button2{
+        display: none;
+    }
+    .nav-header{
+
+            width: 99.1vw;
+    }
+    .hamburger{
+        left: 88%;
+    }
+    .logo{
+        left: 7%;
+        top: 26px;
+    }
+        .play-bar {
+        height: 13vh;
+        position: absolute;
+        z-index: 100;
+        bottom: 0%;
+        width: 99vw;
+    }
+    .library{
+            max-height: 79.5vh;
+            width: 100vw;
+            margin: 0;
+    }
+    .songList ul li{
+        width: 86vw;
+    }
+    .songList{
+        max-height: 60vh;
+    }
+    h1 {
+    text-align: center;
+    padding: 15px 17px 15px 17px;
+    }
+    .right{
+        margin: 0;
+        border-radius: 0;
+    }
+    .cross{
+        top: 3.5%;
+        display: inline;
+    }
+    .main{
+        max-height: 72.5vh;
+    }
+    .hamburger{
+        display: inline;
+                top: 33px;
+    }
+.volume-slider {
+        height: 5px;
+        width: 51px;
+    }
+    .song-info {
+        font-size: 12px;
+        text-align: center;
+        font-weight: bold;
+        top: 19%;
+    }
+
+    .song-duration{
+            gap: 277px;
+            bottom: 21px;
+    }
+    .volume{
+        top: -3%;
+        gap: 6px;
+        display: none;
+    }
+    .volume img{
+        width: 22px;
+    }
+    .seekbar{
+        width: 58%;
+        bottom: 26px;
+    }
+    .songbuttons{
+        left: 36%;
+    }
+    /* .sd{
+        display: inline;
+    } */
+
+}
