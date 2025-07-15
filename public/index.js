@@ -46,6 +46,14 @@ async function getSongs(folder) {
 // function for converting time to 00:00/00:00 format////////////////////////////////////////////////////////////////////////////
 
 function formatTime(time, duration) {
+  // Handle NaN values
+  if (isNaN(time) || isNaN(duration) || time < 0 || duration < 0) {
+    document.querySelector(".song-duration").innerHTML = `
+      <div class="st">--:--</div>
+      <div class="et">--:--</div>
+    `;
+    return;
+  }
   const mins = Math.floor(time / 60);
   const secs = Math.floor(time % 60);
   const formattedMins = String(mins).padStart(2, "0");
@@ -60,8 +68,8 @@ function formatTime(time, duration) {
   duration = `${formattedMins1}:${formattedSecs1}`;
 
   document.querySelector(".song-duration").innerHTML = `
-  <div class="st">${time}</div>
-  <div class="et">${duration}</div>
+    <div class="st">${time}</div>
+    <div class="et">${duration}</div>
   `;
 }
 
@@ -73,10 +81,14 @@ function playMusic(track, pause = false) {
     playSong.src = "img/pauseu.svg";
   }
 
+  // Show loading placeholders while song metadata is loading
   let abd = decodeURI(track).split("- PagalWorld.mp3")[0];
-  document.querySelector(".song-info").innerHTML = abd.split("/")[1];
-
-  document.querySelector(".song-duration").innerHTML = `${timer}`;
+  let songInfo = abd.split("/")[1];
+  document.querySelector(".song-info").innerHTML = songInfo && songInfo !== "undefined" ? songInfo : "Loading...";
+  document.querySelector(".song-duration").innerHTML = `
+    <div class="st">--:--</div>
+    <div class="et">--:--</div>
+  `;
 }
 
 //function for dynamic playlist////////////////////////////////////////////////
